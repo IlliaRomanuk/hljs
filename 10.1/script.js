@@ -4,7 +4,7 @@ function getFiniteValue(company) {
   getProp(company);
 
   function getProp(o) {
-    for (var prop in o) {
+    for (let prop in o) {
       if (typeof o[prop] === "object") {
         getProp(o[prop]);
       } else if (prop === "salary") {
