@@ -1,0 +1,12 @@
+.flower {
+  display: block;
+}
+.mixer {
+  display: none;
+}
+.turtle{
+    display: none;
+}
+.conteiner{
+    display: flex;
+}

@@ -51,10 +51,8 @@ formObj.forEach(({ selector, pattern, errorSelector, element }) => {
     }
   });
 });
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
   if (!result.name || !result.message || !result.number || !result.email) {
     console.log("error: not all fields are valid");
   } else {
