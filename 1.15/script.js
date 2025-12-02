@@ -41,7 +41,7 @@ function renderTodos() {
 }
 formButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const value = formInput.value;
+  const value = formInupt.value;
   spisok.push({ text: value, done: false });
   saveTodos();
   renderTodos();
