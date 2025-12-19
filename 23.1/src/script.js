@@ -97,4 +97,7 @@ formButton.on("click", (event) => {
   renderTodos();
   formInput.val("");
 });
+itemDelete.on("click", (event) => {
+  event.preventDefault();
+});
 renderTodos();

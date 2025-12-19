@@ -8,12 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
+    
     <div class="container">
         <h1>ToDoList</h1>
         <form id="form" class="form js--form">
             <input id="formInput" type="text" name="value" required class="form__input js--form__input">
-            <button id="formButton" class="form__btn">Додати</button>
+            <button id="formButton" type="button" class="form__btn">Додати</button>
         </form>
+        <form class="form js--form">
+            <input  class="form__input"  id="todo-id" type="text">
+            <button id="itemDelete" type="button" class="form__btn">Видалити</button>
+        </form>
+            <button id="itemPut" class="form__btn">Переробити</button>
         <ul id="list" class="js--todos-wrapper">
            <li class="todo-item">
                <input type="checkbox">
@@ -32,18 +39,43 @@
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                text: 'text',
+                // text: 'text',
+                text: document.querySelector('#formInput').value,
                 checked: false,
             })
         })
         document.querySelector('#formButton').addEventListener('click', async () => {
-            const respons = await postResponse();
-            const data = await respons.json();
+            const response = await postResponse();
+            const data = await response.json();
 
         }) 
+        const deleteResponse = async (id) => fetch(`http://localhost:8080/todos/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json'},
+        })
+        document.querySelector('#itemDelete').addEventListener('click', async () => {
+            const response = await deleteResponse(document.querySelector('#todo-id').value);
+            const data = await response.json();
+            console.log(data);
+        })
+        const putSelector = async (id, text) => fetch(`http://localhost:8080/todos/${id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                text,
+                checked: false,
+            })
+        })
+        document.querySelector('#itemPut').addEventListener('click', async () => {
+            const respons = await putSelector(
+                document.querySelector('#todo-id').value,
+                document.querySelector('#formInput').value
+            );
+        })
+
     </script>
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../build/script.js"></script>    
+    <!-- <script src="../build/script.js"></script>     -->
 </body>
 </html>
