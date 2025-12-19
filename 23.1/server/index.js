@@ -13,6 +13,8 @@ app.use(express.json());
 app.listen(8080, () => {
   console.log("server is runing on localhost 8080...");
 });
+
+
 app.get("/todos", (req, res) => {
  
   TodoModel.find().then((data) => res.send(data));
