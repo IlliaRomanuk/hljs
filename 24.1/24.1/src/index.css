@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+.contener{
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+.form{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.https{
+  background-color: rgb(100, 100, 100);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+}
+.button{
+  color: white;
+  background-color: rgb(123, 123, 123);
+  border: none;
+  padding: 5px 10px;
+}
+.try{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.result{
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgb(226, 226, 226);
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 30px;
+}
