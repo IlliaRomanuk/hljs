@@ -15,13 +15,14 @@ class Button extends Component {
   render() {
     return (
       <div className="showResult">
-        <button className="button" onClick={this.handelToggleShow}>{this.state.show ? "Hide Result" : "Show Result"}</button>
-
+        <button className="button" onClick={this.handelToggleShow}>
+          {this.state.show ? "Hide Result" : "Show Result"}
+        </button>
 
         {this.state.show && (
           <Result votes={this.props.votes} stickers={this.props.stickers} />
         )}
-        </div>
+      </div>
     );
   }
 }
