@@ -11,10 +11,6 @@ const stickers = [
   "/stickers/free-sticker-snowball-9006614.png",
 ];
 class App extends Component {
-  // const [votes, setVotes] = useState(() => {
-  //   const saved = localStorage.getItem("votes");
-  //   return saved ? JSON.parse(saved) : Array(stickers.length).fill(0);
-  // });
   constructor(props) {
     super(props);
     const saved = localStorage.getItem("votes");
@@ -22,19 +18,18 @@ class App extends Component {
       votes: saved ? JSON.parse(saved) : Array(stickers.length).fill(0),
     };
   }
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.votes !== this.state.votes) {
       localStorage.setItem("votes", JSON.stringify(this.state.votes));
     }
   }
-
   vote = (index) => {
     const newVotes = [...this.state.votes];
     newVotes[index]++;
-    this.setVotes(newVotes);
+    this.setState({ votes: newVotes});
   };
   resetVotes = () => {
-    this.setVotes(Array(stickers.length).fill(0));
+    this.setState({ votes: Array(stickers.length).fill(0) });
   };
   render() {
     return (
@@ -52,7 +47,7 @@ class App extends Component {
           ))}
         </ul>
         <div className="buttons">
-          <Refresh onReset={this.state.resetVotes} />
+          <Refresh onReset={this.resetVotes} />
           <Button votes={this.state.votes} stickers={stickers} />
         </div>
       </div>

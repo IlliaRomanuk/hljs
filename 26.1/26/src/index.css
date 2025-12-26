@@ -1,0 +1,47 @@
+.voting {
+  display: flex;
+  justify-content: center;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  list-style: none;
+}
+.button {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  padding: 15px 10px;
+  border: none;
+  background-color: #58aa75;
+  color: #fff;
+  border-radius: 50px;
+}
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.showResult {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.buttonRefresh {
+  width: 150px;
+  max-height: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 15px 10px;
+  border: none;
+  background-color: #58aa75;
+  color: #fff;
+  border-radius: 50px;
+}
