@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 // import  todos from "../redux/slice"
 import { add } from "../redux/slice";
+import Footer from "./footer"
 function Forme() {
     const dispatch = useDispatch();
     const items = useSelector(state => state.todos.items);
@@ -31,6 +32,7 @@ function Forme() {
           <ErrorMessage name="do" component="div" />
           <Button type="submit" variant="outlined">Submit</Button>
           <PinnedSubheaderList items={items}/>
+          <Footer items={items}/>
         </Form>
       </Formik>
     </div>

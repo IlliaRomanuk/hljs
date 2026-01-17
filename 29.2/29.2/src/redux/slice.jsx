@@ -11,6 +11,7 @@ const initialState = {
       add: (state, action) => {
         state.items.push(action.payload)
       },
+    
     },
   })
   export const { add } = todosSlice.actions;
