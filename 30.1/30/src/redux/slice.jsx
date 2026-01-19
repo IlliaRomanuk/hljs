@@ -10,10 +10,13 @@ import { createSlice } from '@reduxjs/toolkit'
     reducers: {
         fetchItems: (state, actions) => {
             state.items = actions.payload;
+        },
+        clean: (state) => {
+          state.items = [];
         }
     },
   })
-  export const { fetchItems } = todosSlice.actions;
+  export const { fetchItems, clean } = todosSlice.actions;
   export default todosSlice.reducer
   export const getInfo = (url) => async (dispatch) =>{
     try {

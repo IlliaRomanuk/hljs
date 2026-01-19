@@ -1,11 +1,18 @@
-import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import ButtonClick from "./button";
 import Input from "./input";
 import Info from "./information";
-
+import Footer from "./foter"
+import { useDispatch } from "react-redux";
+import { getInfo } from "../redux/slice";
 function Forms() {
-  const inputRef = useRef(null);
+  const dispatch = useDispatch();
+  const onChange =(event) =>{
+    event.preventDefault();
+    const value = event.target.elements.http.value;
+    console.log(value);
+    dispatch(getInfo(value));
+  }
   return (
     <div>
       <Formik
@@ -19,19 +26,21 @@ function Forms() {
           }
           return errors;
         }}
+        
+        
       >
         <div>
-          <Form>
+          <Form onSubmit={onChange}>
             <Field
               name="http"
               component={Input}
               label="URL"
               variant="outlined"
-              ref={inputRef} 
             />
-            <ButtonClick inputRef={inputRef}/>
+            <ButtonClick/>
           </Form>
           <Info />
+          <Footer/>
         </div>
       </Formik>
     </div>

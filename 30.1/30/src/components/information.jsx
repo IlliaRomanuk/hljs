@@ -1,7 +1,6 @@
 
 import { useSelector } from "react-redux";
 function Info() {
-
   
   const items= useSelector((state) => state.todos.items);
   return (

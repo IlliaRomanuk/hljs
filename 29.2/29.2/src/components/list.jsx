@@ -2,8 +2,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-
-export default function PinnedSubheaderList({items}) {
+import { useSelector } from 'react-redux';
+export default function PinnedSubheaderList() {
+  const items = useSelector(state => state.todos.items);
   return (
     <List
       sx={{

@@ -11,7 +11,9 @@ const initialState = {
       add: (state, action) => {
         state.items.push(action.payload)
       },
-    
+    sum:(state) => {
+      state.items.length
+    }
     },
   })
   export const { add } = todosSlice.actions;
