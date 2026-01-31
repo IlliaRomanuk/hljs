@@ -1,10 +1,10 @@
 import { Formik, Form, Field } from "formik";
 import ButtonClick from "./button";
-import Input from "./input";
+import Input from "./forminput";
 import Info from "./information";
 import Footer from "./foter"
 import { useDispatch } from "react-redux";
-import { getInfo } from "../redux/slice";
+import { getInfo } from "../redux/swapi/slice";
 function Forms() {
   const dispatch = useDispatch();
   const onChange =(event) =>{
@@ -33,7 +33,7 @@ function Forms() {
         
       >
         <div>
-          <Form>
+          <Form >
             <Field
               name="http"
               component={Input}

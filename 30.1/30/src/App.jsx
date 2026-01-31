@@ -1,5 +1,4 @@
 import Form from "./components/form"
-import './App.css'
 import { Provider } from "react-redux"
 import store from './redux/stor'
 function App() {
@@ -13,3 +12,4 @@ function App() {
 }
 
 export default App
+  
