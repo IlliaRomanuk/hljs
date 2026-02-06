@@ -2,10 +2,7 @@ const form = $("#form");
 const formInput = $("#formInput");
 const formButton = $("#formButton");
 const list = $("#list");
-let spisok = JSON.parse(localStorage.getItem("todos")) || [];
-function saveTodos() {
-  localStorage.setItem("todos", JSON.stringify(spisok));
-}
+let spisok = [];
 function renderTodos() {
   list.html("");
   $(".modal").remove();
@@ -76,28 +73,58 @@ function renderTodos() {
       </div>
     `);
     $("body").append(modals);
+    })
+  }
 
-    input.on("change", () => {
-      item.done = input.prop("checked");
-      saveTodos();
+function loadTodos() {
+  fetch("http://localhost:8080/todos")
+    .then(res => res.json())
+    .then(data => {
+      spisok = data;
       renderTodos();
     });
-    button.on("click", () => {
-      spisok.splice(index, 1);
-      saveTodos();
-      renderTodos();
-    });
-  });
 }
-formButton.on("click", (event) => {
+
+
+formButton.on("click", function (event) {
   event.preventDefault();
+
   const value = formInput.val();
-  spisok.push({ text: value, done: false });
-  saveTodos();
-  renderTodos();
-  formInput.val("");
+
+  fetch("http://localhost:8080/todos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      text: value,
+      done: false,
+    }),
+  }).then(() => {
+    loadTodos();
+    formInput.val("");
+  });
 });
-itemDelete.on("click", (event) => {
-  event.preventDefault();
+
+
+button.on("click", () => {
+  fetch("http://localhost:8080/todos/:id" + item._id, {
+    method: "DELETE",
+  }).then(loadTodos);
 });
-renderTodos();
+
+
+input.on("change", () => {
+  fetch("http://localhost:8080/todos/:id" + item._id, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      done: input.prop("checked"),
+    }),
+  }).then(loadTodos);
+});
+
+
+loadTodos();
