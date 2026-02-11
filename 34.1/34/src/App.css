@@ -1,0 +1,10 @@
+.formLog{
+  display: flex;
+   gap: 40px; 
+   flex-direction: column;
+   padding: 85px 110px 213px 110px;
+}
+.logoLogination{
+  display: flex;
+  justify-content: center;
+}
