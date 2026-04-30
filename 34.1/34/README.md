@@ -61,6 +61,8 @@ Built with React, Redux Toolkit, Formik, and Material UI.
 - JavaScript (ES6+)
  
 --- 
+
+```bash
 src/
 │
 ├──assets/
