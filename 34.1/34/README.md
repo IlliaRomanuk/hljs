@@ -1,16 +1,86 @@
-# React + Vite
+# Product Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application for managing products with full CRUD functionality.  
+The project includes authentication UI, product table management, product preview page, and modal-based forms.  
+Built with React, Redux Toolkit, Formik, and Material UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Features
 
-## React Compiler
+### Login Page (UI Authentication)
+- Email & password validation (Formik)
+- Password visibility toggle
+- Redirect to product table after login
+- Simple frontend-only authentication flow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### Product Table (Main Dashboard)
+- Fetch and display products from MockAPI
+- Material UI table layout
+- Edit products (modal form)
+- Delete products with confirmation modal
+- Add new product via modal form
+- Redux Toolkit state management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### Add Product
+- Modal-based form
+- Form validation (Formik)
+- Sends POST request to API
+- Automatically updates Redux state
+
+---
+
+### Edit Product
+- Pre-filled form with selected product data
+- Update product via PUT request
+- Live update in Redux store
+
+---
+
+### Product Preview Page
+- Grid layout of product cards
+- Fetches same API data
+- Displays product details visually
+- Simple shopping-style preview UI
+
+---
+
+## Tech Stack
+
+- React
+- React Router DOM
+- Redux Toolkit
+- React Redux
+- Formik
+- Material UI (MUI)
+- MockAPI (REST API)
+- JavaScript (ES6+)
+ 
+--- 
+src/
+│
+├──assets/
+│
+├── components/
+│ ├── addForm.jsx
+│ ├── loginationm.jsx
+│ ├── productPreview.jsx
+│ ├── productTablke.jsx
+│ ├── remade.jsx
+│
+├── redux/
+│ ├── slice.jsx
+│ ├── selector.js
+│ ├── stor.js
+│
+├── App.jsx
+├── main.jsx
+├── App.css
+├── index.css
+
+## 📁 Project Structure
+ 
